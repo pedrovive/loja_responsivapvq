@@ -1,0 +1,282 @@
+/* Regras gerais para o site */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', sans-serif;
+}
+
+/* Cores do Site */
+:root{
+    /* Cor da letra das seções */
+    --cor-secoes:  #fd9250;
+    /* Cor do fundo do header e box-shadow */
+    --cor-header:  #24252a;
+    --cor-sombra: #464646;
+    /* Cor de fundo da página */
+    --cor-fundo:  #fe6d48;
+    /* Cor de fundo quando um item do menu for clicado */
+    --cor-selecionada: #86b7fe;
+    /* Cor do h1 */
+    --cor-titulo: #fff;
+    /* cor do botão de login */
+    --cor-btn: #34707f;
+    /* cor do botão de login hover */
+    --cor-btn-hover: #2f6876;
+    /* Cor do submenu */
+    --cor-sub: #c3c0c0;
+}
+
+/* serve para medir os elementos */
+.regua {
+    border: 1px solid #9e07b3;
+}
+
+.container { /* Alinhando e centralizando todo o conteudo da página, tanto no header quanto no main */
+    max-width: 1024px;
+    width: 100%;
+    max-height: 100vh;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* Regras para o Header */
+header {
+    background-color: var(--cor-header);
+    box-shadow: 0px 3px 10px var(--cor-sombra);
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 2px 0;
+}
+
+.logo h1 {
+    color: var(--cor-titulo);
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 18px;
+    /* Altura da linha gradiente */
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.navegacao ul {
+    display: flex;
+    align-items: center;
+    gap: 5rem; /* espaçamento entre os itens do menu */
+}
+
+.navegacao ul>li {  /* O sinal de > indica que estou falando como filho direto do ul do container .navegacao*/
+    list-style-type: none;
+}
+
+.navegacao ul li a {
+    text-decoration: none;
+    color: var(--cor-titulo);
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.navegacao ul li a:hover { /* colocando um efeito quando passarem o mouse por cima dos itens do menu */
+    color: var(--cor-btn-hover);
+}
+
+/* Regras para o corpo da loja */
+
+.loja {
+    align-items: center;
+}
+
+.loja .sobre-loja { /* Estilizando a seção sobre nós */
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 37px;
+}
+
+.loja .sobre-loja img { /* Estilizando a imagem da loja */
+    max-width: 500px;
+    margin-right: 20px;
+    margin-bottom: 2%;
+}
+
+.txt-sobre h2 { /* Estilizando o texto sobre a loja */
+    padding-bottom: 10px;
+    font-size: 36px;
+    text-decoration: none;
+    color: var(--cor-header);
+    border-bottom: 3px solid var(--cor-sombra);
+}
+
+.sobre-loja .txt-sobre h2 {
+    margin-bottom: 32px;
+}
+
+.sobre-loja .txt-sobre p { /* Justificando o texto sobre a loja */
+    text-align: justify;
+    margin-top: 3%;
+    padding-bottom: 3%;
+}
+
+/* Regras para a lista de produtos */
+.grid ul { /*  Estilizando a lista de produtos */
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 24.25%);
+    column-gap: 1%;
+    row-gap: 5%;
+}
+
+.grid ul li img { /* Arrumando as imagens dos produtos */
+    width:100%;
+}
+
+/* Regras para os textos dos produtos */
+.grid h2 {
+    padding-bottom: 10px;
+    font-size: 36px;
+    text-decoration: none;
+    color: var(--cor-header);
+    border-bottom: 3px solid var(--cor-sombra);
+    font-style: italic;
+}
+
+.grid h2 { /* Espaçamento entre o titulo da seção e os itens da loja */
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    background: linear-gradient(to right, #fe6d48, #fd9250);
+    color: var(--cor-titulo);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/* Estilizando os icones do botão de compra */
+.bi {
+    align-items: center;
+    padding-inline: 5%;
+}
+
+button:hover {
+    background-color: var(--cor-btn-hover);
+    color: var(--cor-titulo);
+}
+
+.container-flex li h3{
+    font-size: 24px;
+}
+
+.container-flex li p { /* Ajustando  a fonte dos preços para ser menor */
+    font-size: 14px;
+    padding-block: 20px;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Regras de responsividade da página (celular) */
+@media screen and (max-width: 640px) {
+
+    .nav-bar {
+        position: fixed;
+        left: 40%;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .loja {
+        display: block;
+    }
+
+    .container {
+        max-width: 90%;
+    }
+
+    .loja .sobre-loja {
+        display: block;
+        font-size: 1em;
+        margin-top: 48px;
+    }
+
+    .loja .sobre-loja img {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 2%;
+    }
+
+    .grid ul {
+        display: block;
+    }
+
+    .container-flex li h3 {
+        font-size: 32px;
+    }
+}
+
+
+/* Regras de responsividade da página (Tablets) */
+@media screen and (min-width: 641px)and (max-width: 1023px) {
+    
+    .container {
+        max-width: 90%;
+    }
+
+    .loja {
+        align-items: center;
+        justify-content:  center;
+    }
+
+    .loja .sobre-loja {
+        display: block;
+    }
+
+    .loja .sobre-loja a img {
+        max-width: 100%;
+    }
+
+    .grid .container-flex {
+        grid-template-columns: repeat(2, 49%);
+    }
+
+    .loja .sobre-loja img {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 2%;
+    }
+
+    .container-flex li he {
+        font-size: 32px;
+    }
+}
